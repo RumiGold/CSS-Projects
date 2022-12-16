@@ -1,0 +1,199 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #08001b;
+}
+
+.container {
+  max-width: 1100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.container .card {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  background-color: #0c002b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+  opacity: 0.7;
+  margin: 30px;
+  box-shadow: 0 20px 50px rgb(0, 0, 0.2);
+}
+
+.container .card:hover {
+  opacity: 1;
+}
+
+.container .card::before {
+  position: absolute;
+  content: "";
+  width: 50%;
+  left: 2px;
+  top: 2px;
+  bottom: 2px;
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.container .card .content {
+  padding: 30px;
+  text-align: center;
+}
+
+.container .card .content h2 {
+  position: absolute;
+  right: 30px;
+  font-size: 4em;
+  font-weight: 800;
+  color: #1779ff;
+  z-index: 1;
+  opacity: 0.1;
+  transition: 0.5s;
+}
+
+.container .card:hover .content h2 {
+  transform: translateY(-80px);
+  opacity: 1;
+}
+
+.container .card .content h3 {
+  font-size: 1.5em;
+  color: #fff;
+  z-index: 2;
+  opacity: 0.5;
+  letter-spacing: 1px;
+  transition: 0.5s;
+}
+
+.container .card:hover .content h3,
+.container .card:hover .content p {
+  opacity: 1;
+}
+
+.container .card .content p {
+  font-size: 1em;
+  font-weight: 300;
+  color: #fff;
+  z-index: 2;
+  opacity: 0.5;
+  letter-spacing: 1px;
+  transition: 0.5s;
+  padding: 20px 0;
+}
+
+.container .card .content a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 15px;
+  background-color: #fff;
+  color: #0c002b;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.container .card span {
+  opacity: 0;
+}
+
+.container .card:hover span {
+  opacity: 1;
+}
+
+.container .card span:nth-child(1) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(to right, transparent, #1779ff);
+  animation: animate1 2s linear infinite;
+}
+
+@keyframes animate1 {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.container .card span:nth-child(2) {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 0px;
+  background: linear-gradient(to bottom, transparent, #1779ff);
+  animation: animate2 2s linear infinite;
+  animation-delay: 1s;
+}
+
+@keyframes animate2 {
+  0% {
+    width: 3px;
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.container .card span:nth-child(3) {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 0px;
+  width: 100%;
+  background: linear-gradient(to left, transparent, #1779ff);
+  animation: animate3 2s linear infinite;
+  animation-delay: 2s;
+}
+
+@keyframes animate3 {
+  0% {
+    height: 3px;
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.container .card span:nth-child(4) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0px;
+  background: linear-gradient(to top, transparent, #1779ff);
+  animation: animate4 2s linear infinite;
+  animation-delay: 3s;
+}
+
+@keyframes animate4 {
+  0% {
+    width: 3px;
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
